@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express();
-	    
-   var sql = require("mysql");
+var con = require('./../config');
+var sql = require("mysql");
 
     // config for your database
     var config = sql.createPool( {
-        user: 'root',
-        password: 'butterfly',
+        user: con.user,
+        password: con.passwd,
         host: '35.205.189.63', 
-        database: 'plant_data' 
+        database: con.db 
     });
 
 config.getConnection(function(err, connection) {              // The server is either down
